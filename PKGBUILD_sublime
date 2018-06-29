@@ -1,0 +1,21 @@
+# Maintainer: Varun Krishnan <2017.vkrishnan@gmail.com>
+pkgname=sublime_preference_switcher
+_pkgname=Sublime_Preference_Switcher
+pkgver=1.0
+pkgrel=1
+epoch=1
+pkgdesc="A script for easily switching between sublime preference files, or between themes and color schemes."
+arch=('any')
+url="https://github.com/SpadeXavier/Sublime_Preference_Switcher"
+license=('GPL')
+provides=($pkgname)
+conflicts=($pkgname)
+depends=('python' 'python-termcolor')
+makedepends=('git')
+source=("$_pkgname::git+https://github.com/SpadeXavier/$_pkgname")
+md5sums=('SKIP')
+
+package() {
+  cd $_pkgname
+  install -Dm755 "change_subl_settings.py" "$pkgdir/usr/bin/change_subl_settings"
+}
